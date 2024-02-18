@@ -1,0 +1,14 @@
+// db connection using mongoose
+
+import mongoose from'mongoose';
+export async function DbConnected(){
+    try {
+        await mongoose.connect(process.env.MONGO_URI,{
+        });
+        console.log("db connected");
+        
+    } catch (error) {
+        console.log("db connection",error);
+        throw error;   
+    }
+}
